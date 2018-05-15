@@ -34,6 +34,7 @@ public class StoreSystem extends Application
         TextField personPhone = new TextField();
         TextField personAddress = new TextField();
         TextField productName = new TextField();
+        TextField productPrice = new TextField();
         TextField productDescription = new TextField();
         TextField serviceName = new TextField();
         TextField serviceDescription = new TextField();
@@ -57,9 +58,10 @@ public class StoreSystem extends Application
         Label prsnName = new Label("Person Name: ");
         Label prsnAddress = new Label("Person Address: ");
         Label prsnPhone = new Label("Person Phone: ");
-        Label sellingPrice = new Label ("Sell for cost: ");
-        Label category = new Label ("Item Category: ");
-        Label quantity = new Label("Item Quantity: ");
+        Label prdName = new Label ("Product Name: ");
+        
+        Label prdPaid = new Label ("Product Paid Price: ");
+        Label prdDescription = new Label("Product Description: ");
         TextArea editArea = new TextArea();
         String testInventory = "Milk, eggs, brownies, dough, bread";
       Button editDisplay = new Button("Display Inventory");
@@ -130,12 +132,7 @@ public class StoreSystem extends Application
         
         // Button Action
         go.setOnAction(e -> setDisplay(items.indexOf(comboBox.getValue())));
-//       
-//        showInventory();
-//        showInventory1();
-//        showInventory2();
-//        showInventory3();
-//        showInventory4();
+
         
     }
     
@@ -145,7 +142,7 @@ public class StoreSystem extends Application
 //        editAction();
         if (index == 4)
         {
-            
+            addActionWindow(index);
         }
         if (index == 0)
         {
@@ -156,49 +153,25 @@ public class StoreSystem extends Application
         }
         if (index == 1)
         {
-             
+             addActionWindow(index);
             
-//            editAction();
-//          ListView<Item> lv = new ListView<>
-//          (FXCollections.observableArrayList(invent));
-//          lv.setPrefSize(800,800);
-//          lv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//          
-//          BorderPane pane2 = new BorderPane();
-//          pane2.setBottom(new ScrollPane(lv));
-//          
-//          lv.getSelectionModel().selectedItemProperty().addListener(ov -> 
-//          {
-//              
-//              showInventory();
-//              showInventory1();
-//              showInventory2();
-//              showInventory3();
-//              showInventory4();
-//              editAction();
-//          });
-//          
-//          Scene scene2 = new Scene(pane2, 450, 170);
-//          Stage stage3 = new Stage();
-//          stage3.setTitle("Inventory ListView");
-//          stage3.show();
-            
-//    
-//            Label editId = new Label ("Enter ID Number of item to edit: ");
-//            TextField txtEdit = new TextField()
+
         }
         if (index == 2) 
         {
-//            printCatActionWindow(index);
+            addActionWindow(index);
             
         }  
         if (index == 3)
         {
-//            Test.setText(invent.toString());
+            addActionWindow(index);
            
             
         }
-            
+        if (index == 5)
+        {
+             addActionWindow(index);
+        }
         
         }
          
@@ -229,8 +202,8 @@ public class StoreSystem extends Application
         
         
         
-          
-          
+        if (index == 0)
+        {   
         // Toggle group for radiobuttons
         ToggleGroup group = new ToggleGroup();
         produceCat.setToggleGroup(group);
@@ -264,7 +237,14 @@ public class StoreSystem extends Application
         actionPane.add(submit,3,10);
         
           
-          
+        } 
+        
+        if (index == 1)
+        {
+            
+            
+            
+        }
         
         // Action event for submit button
         submit.setOnAction(e -> {
