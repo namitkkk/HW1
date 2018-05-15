@@ -5,10 +5,15 @@
  */
 package hw1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author kumar
  */
-public class Store {
+public class Store 
+{
     
+    
+    private ArrayList<Product> products;
 }

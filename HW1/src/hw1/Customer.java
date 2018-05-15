@@ -18,6 +18,8 @@ public class Customer extends StorePerson
         this.personType = "Customer";
     }
     
+    
+    
     public String toString()
     {
         return super.toString();
