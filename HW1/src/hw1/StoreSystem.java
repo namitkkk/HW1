@@ -99,7 +99,7 @@ public class StoreSystem extends Application
         
         
 //         Picture addition
-        ImageView image = new ImageView("http://www.newlifehfs.com/grocery_cartoon_203x249.jpg");
+        ImageView image = new ImageView("file:src/hw1/logo.png");
         primaryPane.getChildren().add(image);
         image.setFitHeight(150);
         image.setFitWidth(150);
