@@ -1,7 +1,10 @@
 //////////test
 package hw1;
-//test2
 
+/**
+ *
+ * @author kumar
+ */
 public class HW1 {
 
   
