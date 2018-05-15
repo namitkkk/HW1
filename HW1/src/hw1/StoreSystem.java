@@ -51,6 +51,7 @@ public class StoreSystem extends Application
        
        
         Button submit = new Button ("Submit");
+        Button go = new Button ("Go!");
         TextField editItem = new TextField();
         Label prsnType = new Label("Person Type: ");
         Label prsnName = new Label("Person Name: ");
@@ -99,7 +100,7 @@ public class StoreSystem extends Application
         primaryPane.getChildren().add(image);
         image.setFitHeight(150);
         image.setFitWidth(150);
-        primaryPane.setPadding(new Insets(5,5,5,5));
+        primaryPane.setPadding(new Insets(8,8,8,8));
         primaryPane.setStyle("-fx-background-color: lightgrey;");
         
         
@@ -107,10 +108,11 @@ public class StoreSystem extends Application
         primaryPane.add(actionLabel,0,1);
         primaryPane.add(comboBox, 1, 1);
         primaryPane.add(Test,0,2,4,4);
+         primaryPane.add(go, 2, 7);
         
         
         
-        comboBox.setPrefWidth(400);
+        comboBox.setPrefWidth(500);
         
         
         ObservableList<String> items = FXCollections.observableArrayList(actionClasses);
@@ -127,7 +129,7 @@ public class StoreSystem extends Application
         primaryStage.show();
         
         // Button Action
-        comboBox.setOnAction(e -> setDisplay(items.indexOf(comboBox.getValue())));
+        go.setOnAction(e -> setDisplay(items.indexOf(comboBox.getValue())));
 //       
 //        showInventory();
 //        showInventory1();
