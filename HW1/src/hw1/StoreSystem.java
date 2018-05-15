@@ -39,7 +39,8 @@ public class StoreSystem extends Application
         TextField serviceName = new TextField();
         TextField serviceDescription = new TextField();
         TextField storeName = new TextField();
-        TextField storeAddress = new TextField();
+        TextField storeSDepartment = new TextField();
+        TextField storeDDescprition = new TextField();
         TextField supplierName = new TextField();
         TextField supplierAddress = new TextField();
         
@@ -241,8 +242,20 @@ public class StoreSystem extends Application
         
         if (index == 1)
         {
+             actionPane.add(prdName,0, 1);
+        actionPane.add(productName, 1, 1,2,1);
+        
+        actionPane.add(prdPaid,0, 2);
+        actionPane.add(productPrice,1,2);
+        actionPane.add(prdDescription, 0,3);
+        actionPane.add(productDescription,1,3);
+        
+        actionPane.add(submit,3,10);
             
             
+        }
+        if (index == 2)
+        {
             
         }
         
@@ -263,7 +276,7 @@ public class StoreSystem extends Application
             
             Scene submitScene = new Scene(submitPane,250,100);
             submitStage.setScene(submitScene);
-            submitStage.setTitle("Item Added Confirmation");
+            submitStage.setTitle("Confirmed!");
             submitStage.show();
             
             
