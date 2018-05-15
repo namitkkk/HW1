@@ -55,7 +55,7 @@ public class StoreSystem extends Application
         Label prsnType = new Label("Person Type: ");
         Label prsnName = new Label("Person Name: ");
         Label prsnAddress = new Label("Person Address: ");
-        Label prsnPhone = new Label("Item Cost: ");
+        Label prsnPhone = new Label("Person Phone: ");
         Label sellingPrice = new Label ("Sell for cost: ");
         Label category = new Label ("Item Category: ");
         Label quantity = new Label("Item Quantity: ");
@@ -88,7 +88,7 @@ public class StoreSystem extends Application
         primaryPane.setHgap(20);
         
         // Title
-        Text sceneTitle = new Text("PG Bag It! Inventory System");
+        Text sceneTitle = new Text("Store System!");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,28));
         sceneTitle.setFill(Color.BLUEVIOLET);
         primaryPane.add(sceneTitle, 1, 0, 2, 1);
@@ -143,7 +143,7 @@ public class StoreSystem extends Application
 //        editAction();
         if (index == 4)
         {
-            System.exit(0);
+            
         }
         if (index == 0)
         {
@@ -217,7 +217,7 @@ public class StoreSystem extends Application
         actionPane.setPadding(new Insets(5,5,5,5));
         
         // Nodes
-        Text actionTitle = new Text ("Enter Item Details");
+        Text actionTitle = new Text ("Enter Information ");
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.BLUEVIOLET);
@@ -242,9 +242,10 @@ public class StoreSystem extends Application
         actionPane.add(prsnName,0, 1);
         actionPane.add(personName, 1, 1,2,1);
         
-        actionPane.add(prsnPhone,0, 1);
-        actionPane.add(personPhone,0,2);
-        actionPane.add(personAddress,1,2,2,1);
+        actionPane.add(prsnPhone,0, 2);
+        actionPane.add(personPhone,1,2);
+        actionPane.add(prsnAddress, 0,3);
+        actionPane.add(personAddress,1,3);
         
         
         
