@@ -1,0 +1,617 @@
+
+package hw1;
+
+import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;            
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javax.swing.JFrame;
+import javafx.scene.shape.*;
+
+/**
+ *
+ * @author kumar
+ */
+public class StoreSystem extends Application 
+{
+    TabPane tbPane = new TabPane();
+    Tab tab1 = new Tab("Create: ");
+    Tab tab2 = new Tab("Edit: ");
+    Tab tab3 = new Tab("Display");
+    
+    
+    
+    Label actionLabel = new Label ("Select Entity to Create ");
+    private String [] actionClasses= {"Customers", "Products", "Stores", "Suppliers", "Technician", "Services"};
+        TextArea disp = new TextArea();
+        TextField personName = new TextField();
+        TextField personPhone = new TextField();
+        TextField personAddress = new TextField();
+        TextField personName1 = new TextField();
+        TextField personPhone1 = new TextField();
+        TextField personAddress1 = new TextField();
+        TextField productName = new TextField();
+        TextField productPrice = new TextField();
+        TextField productDescription = new TextField();
+        TextField serviceName = new TextField();
+        TextField serviceLevel = new TextField();
+        TextField serviceTown = new TextField();
+        TextField serviceTech = new TextField();
+        TextField serviceTechNumber = new TextField();
+        TextField storeName = new TextField();
+        TextField storeSDepartment = new TextField();
+        TextField storeDescription = new TextField();
+        TextField supplierName = new TextField();
+        TextField supplierAddress = new TextField();
+        TextField supplierCName = new TextField();
+        TextField supplierCPhone = new TextField();
+        TextField supplierCEmail = new TextField();
+        
+        
+        
+        Label editId = new Label ("Enter ID # of Entity to edit: ");
+        TextField txtEdit = new TextField();
+        RadioButton custa = new RadioButton ("Customer");
+        RadioButton tec = new RadioButton ("Technician");
+       
+       
+        Button submit = new Button ("Submit");
+        Button go = new Button ("Go!");
+        TextField editItem = new TextField();
+        Label prsnType = new Label("Person Type: ");
+        Label prsnName = new Label("Person Name: ");
+        Label prsnAddress = new Label("Person Address: ");
+        Label prsnPhone = new Label("Person Phone: ");
+        Label prsnType1 = new Label("Person Type: ");
+        Label prsnName1 = new Label("Person Name: ");
+        Label prsnAddress1 = new Label("Person Address: ");
+        Label prsnPhone1 = new Label("Person Phone: ");
+        Label prdName = new Label ("Product Name: ");
+        
+        Label prdPaid = new Label ("Product Paid Price: ");
+        Label prdDescription = new Label("Product Description: ");
+         Label strName = new Label ("Store Center Name: ");
+          Label strDepartment = new Label ("Service Department: ");
+           Label strDescription = new Label ("Department Description: ");
+           Label suppName = new Label ("Supplier Name: ");
+           Label suppAddress = new Label ("Supplier Address: ");
+           Label suppCName = new Label ("Supplier Contact Name: ");
+           Label suppCPhone = new Label ("Supplier Contact Phone Number: ");
+           Label suppCEmail = new Label ("Supplier Contact Email: ");
+           Label serName = new Label ("Service Name: ");
+           Label serLevel = new Label ("Service Level: ");
+           Label serTown = new Label ("Service Town: ");
+            Label serTech = new Label ("Service Technician: ");
+            Label serNumber = new Label ("Service Technician's Number: ");
+           
+           
+        TextArea editArea = new TextArea();
+        String testInventory = "Milk, eggs, brownies, dough, bread";
+      Button editDisplay = new Button("Display Inventory");
+      Button editSubmit = new Button("Submit");
+       RadioButton techn = new RadioButton("Produce");
+            RadioButton cost = new RadioButton("Meats/Dairy");
+            
+             private ComboBox<String> comboBox = new ComboBox<>();
+             
+             MenuBar mnuBar = new MenuBar();
+             
+         
+    
+   
+    
+    
+    @Override
+    public void start(Stage primaryStage) 
+    {
+       
+        
+        
+        
+        GridPane primaryPane = new GridPane();
+        //primaryPane.setAlignment(Pos.CENTER);
+        primaryPane.setVgap(20);
+        primaryPane.setHgap(20);
+        
+        
+        // Title
+        Text sceneTitle = new Text("Store System!");
+        sceneTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,28));
+        sceneTitle.setFill(Color.CORNSILK);
+        primaryPane.add(sceneTitle, 1, 0, 2, 1);
+        
+        
+
+        primaryPane.setPadding(new Insets(8,8,8,8));
+        primaryPane.setStyle("-fx-background-color: lightbrown;");
+        
+        
+        // Combo Box
+        primaryPane.add(actionLabel,0,1);
+        primaryPane.add(comboBox, 1, 1);
+        primaryPane.add(go, 2, 3);
+        comboBox.setPrefWidth(400);
+        ObservableList<String> items = FXCollections.observableArrayList(actionClasses);
+        comboBox.getItems().addAll(items);
+        
+    
+        
+        
+        // Add scene
+        Scene primaryScene = new Scene (primaryPane, 400, 300, Color.CADETBLUE);
+        
+        // Stage
+        primaryStage.setScene (primaryScene);
+        primaryStage.setTitle("Store System!");
+        primaryStage.show();
+        
+        // Button Action
+        go.setOnAction(e -> setDisplay(items.indexOf(comboBox.getValue())));
+        
+        
+    }
+    
+    public void setDisplay(int index){
+        
+        
+//        editAction();
+        if (index == 4)
+        {
+            showFive(index);
+        }
+        if (index == 0)
+        {
+            showOne(index);
+           
+            
+        }
+        if (index == 1)
+        {
+            showTwo(index);
+
+        }
+        if (index == 2) 
+        {
+            showThree(index);
+            
+        }  
+        if (index == 3)
+        {
+            showFour(index);
+           
+            
+        }
+        if (index == 5)
+        {
+             showSix(index);
+        }
+        
+        }
+         
+            
+           
+    
+    
+    
+    
+    public void showOne(int index)
+    {
+        
+        
+        
+        
+        
+        
+        Stage oneStage = new Stage();
+        GridPane onePane = new GridPane();
+        GridPane tabPane = new GridPane();
+        GridPane lastTab = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        onePane.setAlignment(Pos.CENTER);
+        tabPane.setAlignment(Pos.CENTER);
+        lastTab.setAlignment(Pos.CENTER);
+        
+        
+        
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+        mainPane.add(tbPane, 0, 1);
+        
+        
+        
+      
+//        mainPane.add(tbPane, 0, 1);
+       
+      
+        
+        
+        
+        
+        // Toggle group for radiobuttons
+        ToggleGroup group = new ToggleGroup();
+        custa.setToggleGroup(group);
+        tec.setToggleGroup(group);
+        
+        
+        
+         
+        
+        
+        // Add nodes to pane
+           
+        
+        onePane.add(prsnName,0, 1);
+        onePane.add(personName, 1, 1,2,1);
+        
+        onePane.add(prsnPhone,0, 2);
+        onePane.add(personPhone,1,2);
+        onePane.add(prsnAddress, 0,3);
+        onePane.add(personAddress,1,3);
+        
+ 
+        onePane.add(prsnType,0,5);
+        onePane.add(custa,1,5);
+        onePane.add(tec,1,6);
+       
+     
+        onePane.add(submit,3,10);
+        tabPane.add(prsnName1,0, 1);
+        tabPane.add(personName, 1, 1,2,1);
+        
+        tabPane.add(prsnPhone1,0, 2);
+        tabPane.add(personPhone1,1,2);
+        tabPane.add(prsnAddress1, 0,3);
+        tabPane.add(personAddress1,1,3);
+        
+ 
+        tabPane.add(prsnType1,0,5);
+        tabPane.add(custa,1,5);
+        tabPane.add(tec,1,6);
+       
+     
+        tabPane.add(submit,3,10);
+        
+        lastTab.add(disp, 0, 1);
+        
+        tab1.setContent(onePane);
+        tbPane.getTabs().add(tab1);
+        
+        tab2.setContent(tabPane);
+        tbPane.getTabs().add(tab2);
+        
+        tab3.setContent(lastTab);
+        tbPane.getTabs().add(tab3);
+         // Scene
+        Scene sceneOne = new Scene (mainPane, 600, 600);
+        
+        // Stage 
+        oneStage.setScene(sceneOne);
+        oneStage.setTitle("Edit Item");
+        
+        oneStage.show();
+        
+    }
+  
+    
+    
+    
+    public void showTwo(int index)
+    {
+        
+        Stage twoStage = new Stage();
+        GridPane twoPane = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        twoPane.setAlignment(Pos.CENTER);
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+//        mainPane.add(tbPane, 0, 1);
+       
+      
+        
+        
+      
+        
+        
+        
+        
+        twoPane.add(prdName,0, 1);
+        twoPane.add(productName, 1, 1,2,1);
+        
+        twoPane.add(prdPaid,0, 2);
+        twoPane.add(productPrice,1,2);
+        twoPane.add(prdDescription, 0,3);
+        twoPane.add(productDescription,1,3);
+        
+        twoPane.add(submit,3,10);
+        
+         // Scene
+        Scene sceneTwo = new Scene (twoPane, 600, 600);
+        
+        // Stage 
+        twoStage.setScene(sceneTwo);
+        twoStage.setTitle("Edit Item");
+        
+        twoStage.show();
+        
+        
+        
+    }
+    public void showThree(int index)
+    {
+        
+        
+        Stage threeStage = new Stage();
+        GridPane threePane = new GridPane();
+          GridPane onePane = new GridPane();
+        GridPane tabPane = new GridPane();
+        GridPane lastTab = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        threePane.setAlignment(Pos.CENTER);
+        onePane.setAlignment(Pos.CENTER);
+        tabPane.setAlignment(Pos.CENTER);
+        lastTab.setAlignment(Pos.CENTER);
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+//        mainPane.add(tbPane, 0, 1);
+       
+      
+        
+        threePane.add(strName,0, 1);
+        threePane.add(storeName, 1, 1,2,1);
+        
+        threePane.add(strDepartment,0, 2);
+        threePane.add(storeSDepartment,1,2);
+        threePane.add(strDescription, 0,3);
+        threePane.add(storeDescription,1,3);
+        
+        threePane.add(submit,3,10); 
+        
+        
+         // Scene
+        Scene sceneThree = new Scene (threePane, 600, 600);
+        
+        // Stage 
+        threeStage.setScene(sceneThree);
+        threeStage.setTitle("Edit Item");
+        
+        threeStage.show();
+        
+    }
+    public void showFour(int index)
+    {
+        
+        Stage fourStage = new Stage();
+        GridPane fourPane = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        fourPane.setAlignment(Pos.CENTER);
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+        
+        
+        
+        
+             fourPane.add(suppName,0, 1);
+        fourPane.add(supplierName, 1, 1,2,1);
+        
+        fourPane.add(suppAddress,0, 2);
+        fourPane.add(supplierAddress,1,2);
+        fourPane.add(suppCName, 0,3);
+        fourPane.add(supplierCName,1,3);
+        fourPane.add(suppCPhone,0,4);
+        fourPane.add(supplierCPhone,1,4);
+        fourPane.add(suppCEmail,0,5);
+        fourPane.add(supplierCEmail,1,5);
+        
+         Scene sceneFour = new Scene (fourPane, 600, 600);
+        
+        // Stage 
+        fourStage.setScene(sceneFour);
+        fourStage.setTitle("Edit Item");
+        
+        fourStage.show();
+        
+        
+        
+    }
+    public void showFive(int index)
+    {
+        
+        
+        
+        
+         Stage fiveStage = new Stage();
+        GridPane fivePane = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        fivePane.setAlignment(Pos.CENTER);
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+        
+        
+        
+        
+        ToggleGroup group = new ToggleGroup();
+        custa.setToggleGroup(group);
+        tec.setToggleGroup(group);
+        fivePane.add(prsnName,0, 1);
+        fivePane.add(personName, 1, 1,2,1);
+        
+        fivePane.add(prsnPhone,0, 2);
+        fivePane.add(personPhone,1,2);
+        fivePane.add(prsnAddress, 0,3);
+        fivePane.add(personAddress,1,3);
+        
+        
+        fivePane.add(submit,3,10);  
+        
+         Scene sceneFive = new Scene (fivePane, 600, 600);
+        
+        // Stage 
+        fiveStage.setScene(sceneFive);
+        fiveStage.setTitle("Edit Item");
+        
+        fiveStage.show();
+    }
+    public void showSix(int index)
+    {
+        
+          Stage sixStage = new Stage();
+        GridPane sixPane = new GridPane();
+        
+        GridPane mainPane = new GridPane();
+        mainPane.setPrefSize(200, 200);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.setVgap(10);
+        mainPane.setHgap(10);
+        mainPane.setStyle("-fx-background-color: lightgrey;");
+        
+
+        mainPane.setPadding(new Insets(3,3,3,3));
+        
+        // Nodes
+        Text actionTitle = new Text ("Enter Information ");
+        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+                28));
+        actionTitle.setFill(Color.FORESTGREEN);
+        mainPane.add(actionTitle,1,0,2,1);
+        sixPane.setAlignment(Pos.CENTER);
+        
+        
+        
+        mainPane.add(mnuBar, 0, 0);
+        
+        
+        
+        sixPane.add(serName,0, 1);
+        sixPane.add(serviceName, 1, 1,2,1);
+        
+        sixPane.add(serLevel,0, 2);
+        sixPane.add(serviceLevel,1,2);
+        sixPane.add(serTown, 0,3);
+        sixPane.add(serviceTown,1,3);
+        sixPane.add(serTech,0,4);
+        sixPane.add(serviceTech,1,4);
+        sixPane.add(serNumber,0,5);
+        sixPane.add(serviceTechNumber,1,5);
+        
+          sixPane.add(submit,3,10);  
+          
+            Scene sceneSix = new Scene (sixPane, 600, 600);
+        
+        // Stage 
+        sixStage.setScene(sceneSix);
+        sixStage.setTitle("Edit Item");
+        
+        sixStage.show();
+    }
+   
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+}
