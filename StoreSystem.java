@@ -29,18 +29,30 @@ import javafx.scene.shape.*;
 public class StoreSystem extends Application 
 {
     TabPane tbPane = new TabPane();
+    TabPane tbPane1 = new TabPane();
+    TabPane tbPane2 = new TabPane();
     Tab tab1 = new Tab("Create: ");
     Tab tab2 = new Tab("Edit: ");
     Tab tab3 = new Tab("Display");
+    Tab tab4 = new Tab("Create: ");
+    Tab tab5 = new Tab("Edit: ");
+    Tab tab6 = new Tab("Display");
+    Tab tab7 = new Tab("Create: ");
+    Tab tab8 = new Tab("Edit: ");
+    Tab tab9 = new Tab("Display");
     
     
-    
-    Label actionLabel = new Label ("Select Entity to Create ");
-    private String [] actionClasses= {"Customers", "Products", "Stores", "Suppliers", "Technician", "Services"};
+        Label actionLabel = new Label ("Select Entity: ");
+        private String [] actionClasses= {"Customers", "Products", "Stores", "Suppliers", "Technician", "Services"};
         TextArea disp = new TextArea();
+        TextArea disp1 = new TextArea();
+        TextArea disp2 = new TextArea();
         TextField personName = new TextField();
         TextField personPhone = new TextField();
         TextField personAddress = new TextField();
+        TextField personNamet = new TextField();
+        TextField personPhonet = new TextField();
+        TextField personAddresst = new TextField();
         TextField personName1 = new TextField();
         TextField personPhone1 = new TextField();
         TextField personAddress1 = new TextField();
@@ -53,8 +65,11 @@ public class StoreSystem extends Application
         TextField serviceTech = new TextField();
         TextField serviceTechNumber = new TextField();
         TextField storeName = new TextField();
+        TextField storeName1 = new TextField();
         TextField storeSDepartment = new TextField();
+        TextField storeSDepartment1 = new TextField();
         TextField storeDescription = new TextField();
+        TextField storeDescription1 = new TextField();
         TextField supplierName = new TextField();
         TextField supplierAddress = new TextField();
         TextField supplierCName = new TextField();
@@ -82,48 +97,49 @@ public class StoreSystem extends Application
         Label prsnPhone1 = new Label("Person Phone: ");
         Label prdName = new Label ("Product Name: ");
         
-        Label prdPaid = new Label ("Product Paid Price: ");
-        Label prdDescription = new Label("Product Description: ");
-         Label strName = new Label ("Store Center Name: ");
+        Label prsnNamet = new Label("Person Name: ");
+        Label prsnAddresst = new Label("Person Address: ");
+        Label prsnPhonet = new Label("Person Phone: ");
+        
+          Label prdPaid = new Label ("Product Paid Price: ");
+          Label prdDescription = new Label("Product Description: ");
+          Label strName = new Label ("Store Center Name: ");
+          Label strName1 = new Label ("Store Center Name: ");
           Label strDepartment = new Label ("Service Department: ");
-           Label strDescription = new Label ("Department Description: ");
-           Label suppName = new Label ("Supplier Name: ");
-           Label suppAddress = new Label ("Supplier Address: ");
-           Label suppCName = new Label ("Supplier Contact Name: ");
-           Label suppCPhone = new Label ("Supplier Contact Phone Number: ");
-           Label suppCEmail = new Label ("Supplier Contact Email: ");
-           Label serName = new Label ("Service Name: ");
-           Label serLevel = new Label ("Service Level: ");
-           Label serTown = new Label ("Service Town: ");
-            Label serTech = new Label ("Service Technician: ");
-            Label serNumber = new Label ("Service Technician's Number: ");
+           Label strDepartment1 = new Label ("Service Department: ");
+          Label strDescription = new Label ("Department Description: ");
+          Label strDescription1 = new Label ("Department Description: ");
+          Label suppName = new Label ("Supplier Name: ");
+          Label suppAddress = new Label ("Supplier Address: ");
+          Label suppCName = new Label ("Supplier Contact Name: ");
+          Label suppCPhone = new Label ("Supplier Contact Phone Number: ");
+          Label suppCEmail = new Label ("Supplier Contact Email: ");
+          Label serName = new Label ("Service Name: ");
+          Label serLevel = new Label ("Service Level: ");
+          Label serTown = new Label ("Service Town: ");
+          Label serTech = new Label ("Service Technician: ");
+          Label serNumber = new Label ("Service Technician's Number: ");
            
            
-        TextArea editArea = new TextArea();
-        String testInventory = "Milk, eggs, brownies, dough, bread";
-      Button editDisplay = new Button("Display Inventory");
-      Button editSubmit = new Button("Submit");
-       RadioButton techn = new RadioButton("Produce");
+            TextArea editArea = new TextArea();
+            String testInventory = "Milk, eggs, brownies, dough, bread";
+            Button editDisplay = new Button("Display Inventory");
+            Button editSubmit = new Button("Submit");
+            RadioButton techn = new RadioButton("Produce");
             RadioButton cost = new RadioButton("Meats/Dairy");
             
              private ComboBox<String> comboBox = new ComboBox<>();
              
              MenuBar mnuBar = new MenuBar();
-             
-         
-    
-   
-    
+            
     
     @Override
     public void start(Stage primaryStage) 
     {
        
-        
-        
-        
+     
         GridPane primaryPane = new GridPane();
-        //primaryPane.setAlignment(Pos.CENTER);
+       
         primaryPane.setVgap(20);
         primaryPane.setHgap(20);
         
@@ -210,12 +226,7 @@ public class StoreSystem extends Application
     
     public void showOne(int index)
     {
-        
-        
-        
-        
-        
-        
+       
         Stage oneStage = new Stage();
         GridPane onePane = new GridPane();
         GridPane tabPane = new GridPane();
@@ -356,14 +367,7 @@ public class StoreSystem extends Application
         mainPane.add(mnuBar, 0, 0);
 //        mainPane.add(tbPane, 0, 1);
        
-      
-        
-        
-      
-        
-        
-        
-        
+    
         twoPane.add(prdName,0, 1);
         twoPane.add(productName, 1, 1,2,1);
         
@@ -392,7 +396,6 @@ public class StoreSystem extends Application
         
         Stage threeStage = new Stage();
         GridPane threePane = new GridPane();
-          GridPane onePane = new GridPane();
         GridPane tabPane = new GridPane();
         GridPane lastTab = new GridPane();
         
@@ -413,17 +416,13 @@ public class StoreSystem extends Application
         actionTitle.setFill(Color.FORESTGREEN);
         mainPane.add(actionTitle,1,0,2,1);
         threePane.setAlignment(Pos.CENTER);
-        onePane.setAlignment(Pos.CENTER);
+        
         tabPane.setAlignment(Pos.CENTER);
         lastTab.setAlignment(Pos.CENTER);
-        
-        
-        
-        mainPane.add(mnuBar, 0, 0);
-//        mainPane.add(tbPane, 0, 1);
-       
       
-        
+        mainPane.add(mnuBar, 0, 0);
+        mainPane.add(tbPane1, 0, 1);
+     
         threePane.add(strName,0, 1);
         threePane.add(storeName, 1, 1,2,1);
         
@@ -433,10 +432,29 @@ public class StoreSystem extends Application
         threePane.add(storeDescription,1,3);
         
         threePane.add(submit,3,10); 
+     
+        tabPane.add(strName1,0, 1);
+        tabPane.add(storeName1, 1, 1,2,1);
+        
+        tabPane.add(strDepartment1,0, 2);
+        tabPane.add(storeSDepartment1,1,2);
+        tabPane.add(strDescription1, 0,3);
+        tabPane.add(storeDescription1,1,3);
+        
+        lastTab.add(disp1, 0, 1);
+        
+        tab4.setContent(threePane);
+        tbPane1.getTabs().add(tab4);
+        
+        tab5.setContent(tabPane);
+        tbPane1.getTabs().add(tab5);
+        
+        tab6.setContent(lastTab);
+        tbPane1.getTabs().add(tab6);
         
         
          // Scene
-        Scene sceneThree = new Scene (threePane, 600, 600);
+        Scene sceneThree = new Scene (mainPane, 600, 600);
         
         // Stage 
         threeStage.setScene(sceneThree);
@@ -476,7 +494,7 @@ public class StoreSystem extends Application
         
         
         
-             fourPane.add(suppName,0, 1);
+        fourPane.add(suppName,0, 1);
         fourPane.add(supplierName, 1, 1,2,1);
         
         fourPane.add(suppAddress,0, 2);
@@ -487,8 +505,7 @@ public class StoreSystem extends Application
         fourPane.add(supplierCPhone,1,4);
         fourPane.add(suppCEmail,0,5);
         fourPane.add(supplierCEmail,1,5);
-        
-         Scene sceneFour = new Scene (fourPane, 600, 600);
+        Scene sceneFour = new Scene (fourPane, 600, 600);
         
         // Stage 
         fourStage.setScene(sceneFour);
@@ -502,11 +519,11 @@ public class StoreSystem extends Application
     public void showFive(int index)
     {
         
-        
-        
-        
-         Stage fiveStage = new Stage();
+ 
+        Stage fiveStage = new Stage();
         GridPane fivePane = new GridPane();
+        GridPane tabPane = new GridPane();
+        GridPane lastTab = new GridPane();
         
         GridPane mainPane = new GridPane();
         mainPane.setPrefSize(200, 200);
@@ -515,7 +532,6 @@ public class StoreSystem extends Application
         mainPane.setHgap(10);
         mainPane.setStyle("-fx-background-color: lightgrey;");
         
-
         mainPane.setPadding(new Insets(3,3,3,3));
         
         // Nodes
@@ -525,14 +541,13 @@ public class StoreSystem extends Application
         actionTitle.setFill(Color.FORESTGREEN);
         mainPane.add(actionTitle,1,0,2,1);
         fivePane.setAlignment(Pos.CENTER);
-        
-        
+        tabPane.setAlignment(Pos.CENTER);
+        lastTab.setAlignment(Pos.CENTER);
+      
         
         mainPane.add(mnuBar, 0, 0);
-        
-        
-        
-        
+        mainPane.add(tbPane2, 0, 1);
+      
         ToggleGroup group = new ToggleGroup();
         custa.setToggleGroup(group);
         tec.setToggleGroup(group);
@@ -544,10 +559,28 @@ public class StoreSystem extends Application
         fivePane.add(prsnAddress, 0,3);
         fivePane.add(personAddress,1,3);
         
+        tabPane.add(prsnNamet,0, 1);
+        tabPane.add(personNamet, 1, 1,2,1);
+        
+        tabPane.add(prsnPhonet,0, 2);
+        tabPane.add(personPhonet,1,2);
+        tabPane.add(prsnAddresst, 0,3);
+        tabPane.add(personAddresst,1,3);
+        
         
         fivePane.add(submit,3,10);  
+        lastTab.add(disp2, 0, 1);
         
-         Scene sceneFive = new Scene (fivePane, 600, 600);
+        tab7.setContent(fivePane);
+        tbPane2.getTabs().add(tab7);
+        
+        tab8.setContent(tabPane);
+        tbPane2.getTabs().add(tab8);
+        
+        tab9.setContent(lastTab);
+        tbPane2.getTabs().add(tab9);
+        
+        Scene sceneFive = new Scene (mainPane, 600, 600);
         
         // Stage 
         fiveStage.setScene(sceneFive);
@@ -558,19 +591,15 @@ public class StoreSystem extends Application
     public void showSix(int index)
     {
         
-          Stage sixStage = new Stage();
+        Stage sixStage = new Stage();
         GridPane sixPane = new GridPane();
-        
         GridPane mainPane = new GridPane();
         mainPane.setPrefSize(200, 200);
         mainPane.setAlignment(Pos.CENTER);
         mainPane.setVgap(10);
         mainPane.setHgap(10);
         mainPane.setStyle("-fx-background-color: lightgrey;");
-        
-
         mainPane.setPadding(new Insets(3,3,3,3));
-        
         // Nodes
         Text actionTitle = new Text ("Enter Information ");
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
@@ -578,16 +607,9 @@ public class StoreSystem extends Application
         actionTitle.setFill(Color.FORESTGREEN);
         mainPane.add(actionTitle,1,0,2,1);
         sixPane.setAlignment(Pos.CENTER);
-        
-        
-        
         mainPane.add(mnuBar, 0, 0);
-        
-        
-        
         sixPane.add(serName,0, 1);
         sixPane.add(serviceName, 1, 1,2,1);
-        
         sixPane.add(serLevel,0, 2);
         sixPane.add(serviceLevel,1,2);
         sixPane.add(serTown, 0,3);
@@ -596,15 +618,11 @@ public class StoreSystem extends Application
         sixPane.add(serviceTech,1,4);
         sixPane.add(serNumber,0,5);
         sixPane.add(serviceTechNumber,1,5);
-        
-          sixPane.add(submit,3,10);  
-          
-            Scene sceneSix = new Scene (sixPane, 600, 600);
-        
+        sixPane.add(submit,3,10);  
+        Scene sceneSix = new Scene (sixPane, 600, 600);
         // Stage 
         sixStage.setScene(sceneSix);
         sixStage.setTitle("Edit Item");
-        
         sixStage.show();
     }
    
