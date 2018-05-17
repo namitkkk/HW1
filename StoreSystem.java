@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.swing.JFrame;
 import javafx.scene.shape.*;
+import javafx.scene.text.TextAlignment;
 
 /**
  *
@@ -48,6 +49,7 @@ public class StoreSystem extends Application
         TextArea disp1 = new TextArea();
         TextArea disp2 = new TextArea();
         TextField personName = new TextField();
+        TextField personNamett = new TextField();
         TextField personPhone = new TextField();
         TextField personAddress = new TextField();
         TextField personNamet = new TextField();
@@ -82,9 +84,12 @@ public class StoreSystem extends Application
         TextField txtEdit = new TextField();
         RadioButton custa = new RadioButton ("Customer");
         RadioButton tec = new RadioButton ("Technician");
+        RadioButton techn = new RadioButton("Customer");
+            RadioButton cost = new RadioButton("Technician");
        
        
         Button submit = new Button ("Submit");
+        Button submit1 = new Button ("Submit");
         Button go = new Button ("Go!");
         TextField editItem = new TextField();
         Label prsnType = new Label("Person Type: ");
@@ -121,12 +126,8 @@ public class StoreSystem extends Application
           Label serNumber = new Label ("Service Technician's Number: ");
            
            
-            TextArea editArea = new TextArea();
-            String testInventory = "Milk, eggs, brownies, dough, bread";
-            Button editDisplay = new Button("Display Inventory");
-            Button editSubmit = new Button("Submit");
-            RadioButton techn = new RadioButton("Produce");
-            RadioButton cost = new RadioButton("Meats/Dairy");
+            
+            
             
              private ComboBox<String> comboBox = new ComboBox<>();
              
@@ -153,7 +154,7 @@ public class StoreSystem extends Application
         
 
         primaryPane.setPadding(new Insets(8,8,8,8));
-        primaryPane.setStyle("-fx-background-color: lightbrown;");
+        primaryPane.setStyle("-fx-background-color: grey;");
         
         
         // Combo Box
@@ -168,7 +169,7 @@ public class StoreSystem extends Application
         
         
         // Add scene
-        Scene primaryScene = new Scene (primaryPane, 400, 300, Color.CADETBLUE);
+        Scene primaryScene = new Scene (primaryPane, 600, 300, Color.CADETBLUE);
         
         // Stage
         primaryStage.setScene (primaryScene);
@@ -218,11 +219,7 @@ public class StoreSystem extends Application
         
         }
          
-            
            
-    
-    
-    
     
     public void showOne(int index)
     {
@@ -247,44 +244,27 @@ public class StoreSystem extends Application
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        actionTitle.setTextAlignment(TextAlignment.CENTER);
+        mainPane.add(actionTitle,0,0);
         onePane.setAlignment(Pos.CENTER);
         tabPane.setAlignment(Pos.CENTER);
         lastTab.setAlignment(Pos.CENTER);
         
-        
-        
-        
-        
-        
         mainPane.add(mnuBar, 0, 0);
         mainPane.add(tbPane, 0, 1);
         
-        
-        
-      
 //        mainPane.add(tbPane, 0, 1);
        
-      
-        
-        
-        
-        
+
         // Toggle group for radiobuttons
         ToggleGroup group = new ToggleGroup();
         custa.setToggleGroup(group);
         tec.setToggleGroup(group);
         
-        
-        
-         
-        
-        
         // Add nodes to pane
            
-        
         onePane.add(prsnName,0, 1);
-        onePane.add(personName, 1, 1,2,1);
+        onePane.add(personNamett, 1, 1,2,1);
         
         onePane.add(prsnPhone,0, 2);
         onePane.add(personPhone,1,2);
@@ -293,8 +273,8 @@ public class StoreSystem extends Application
         
  
         onePane.add(prsnType,0,5);
-        onePane.add(custa,1,5);
-        onePane.add(tec,1,6);
+        onePane.add(cost,1,5);
+        onePane.add(techn,1,6);
        
      
         onePane.add(submit,3,10);
@@ -308,11 +288,11 @@ public class StoreSystem extends Application
         
  
         tabPane.add(prsnType1,0,5);
-        tabPane.add(custa,1,5);
-        tabPane.add(tec,1,6);
+        tabPane.add(tec,1,5);
+        tabPane.add(custa,1,6);
        
      
-        tabPane.add(submit,3,10);
+        tabPane.add(submit1,3,10);
         
         lastTab.add(disp, 0, 1);
         
@@ -329,15 +309,13 @@ public class StoreSystem extends Application
         
         // Stage 
         oneStage.setScene(sceneOne);
-        oneStage.setTitle("Edit Item");
+        oneStage.setTitle("Customer");
         
         oneStage.show();
         
     }
   
-    
-    
-    
+  
     public void showTwo(int index)
     {
         
@@ -351,21 +329,22 @@ public class StoreSystem extends Application
         mainPane.setHgap(10);
         mainPane.setStyle("-fx-background-color: lightgrey;");
         
+        
 
         mainPane.setPadding(new Insets(3,3,3,3));
         
         // Nodes
-        Text actionTitle = new Text ("Enter Information ");
-        actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
+        Text actionTitle1 = new Text ("Enter Information ");
+        actionTitle1.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
-        actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        actionTitle1.setFill(Color.FORESTGREEN);
+        twoPane.add(actionTitle1,0,0);
         twoPane.setAlignment(Pos.CENTER);
         
         
         
         mainPane.add(mnuBar, 0, 0);
-//        mainPane.add(tbPane, 0, 1);
+
        
     
         twoPane.add(prdName,0, 1);
@@ -383,7 +362,7 @@ public class StoreSystem extends Application
         
         // Stage 
         twoStage.setScene(sceneTwo);
-        twoStage.setTitle("Edit Item");
+        twoStage.setTitle("Product");
         
         twoStage.show();
         
@@ -414,7 +393,7 @@ public class StoreSystem extends Application
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        mainPane.add(actionTitle,0,0);
         threePane.setAlignment(Pos.CENTER);
         
         tabPane.setAlignment(Pos.CENTER);
@@ -440,6 +419,7 @@ public class StoreSystem extends Application
         tabPane.add(storeSDepartment1,1,2);
         tabPane.add(strDescription1, 0,3);
         tabPane.add(storeDescription1,1,3);
+        tabPane.add(submit1,3,10); 
         
         lastTab.add(disp1, 0, 1);
         
@@ -458,7 +438,7 @@ public class StoreSystem extends Application
         
         // Stage 
         threeStage.setScene(sceneThree);
-        threeStage.setTitle("Edit Item");
+        threeStage.setTitle("Store");
         
         threeStage.show();
         
@@ -484,7 +464,7 @@ public class StoreSystem extends Application
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        fourPane.add(actionTitle,0,0);
         fourPane.setAlignment(Pos.CENTER);
         
         
@@ -505,11 +485,12 @@ public class StoreSystem extends Application
         fourPane.add(supplierCPhone,1,4);
         fourPane.add(suppCEmail,0,5);
         fourPane.add(supplierCEmail,1,5);
+        fourPane.add(submit1,3,10); 
         Scene sceneFour = new Scene (fourPane, 600, 600);
         
         // Stage 
         fourStage.setScene(sceneFour);
-        fourStage.setTitle("Edit Item");
+        fourStage.setTitle("Supplier");
         
         fourStage.show();
         
@@ -539,7 +520,7 @@ public class StoreSystem extends Application
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        mainPane.add(actionTitle,0,0);
         fivePane.setAlignment(Pos.CENTER);
         tabPane.setAlignment(Pos.CENTER);
         lastTab.setAlignment(Pos.CENTER);
@@ -569,6 +550,7 @@ public class StoreSystem extends Application
         
         
         fivePane.add(submit,3,10);  
+         tabPane.add(submit1,3,10);
         lastTab.add(disp2, 0, 1);
         
         tab7.setContent(fivePane);
@@ -584,7 +566,7 @@ public class StoreSystem extends Application
         
         // Stage 
         fiveStage.setScene(sceneFive);
-        fiveStage.setTitle("Edit Item");
+        fiveStage.setTitle("Technician");
         
         fiveStage.show();
     }
@@ -605,7 +587,7 @@ public class StoreSystem extends Application
         actionTitle.setFont(Font.font("Tahoma", FontWeight.BOLD,
                 28));
         actionTitle.setFill(Color.FORESTGREEN);
-        mainPane.add(actionTitle,1,0,2,1);
+        sixPane.add(actionTitle,0,0);
         sixPane.setAlignment(Pos.CENTER);
         mainPane.add(mnuBar, 0, 0);
         sixPane.add(serName,0, 1);
@@ -622,7 +604,7 @@ public class StoreSystem extends Application
         Scene sceneSix = new Scene (sixPane, 600, 600);
         // Stage 
         sixStage.setScene(sceneSix);
-        sixStage.setTitle("Edit Item");
+        sixStage.setTitle("Service");
         sixStage.show();
     }
    
